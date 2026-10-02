@@ -1,0 +1,1 @@
+ALTER TABLE `newsletter` ADD `image_key` text;

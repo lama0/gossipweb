@@ -1,0 +1,1 @@
+ALTER TABLE `calendar_events` ADD `event_time` text DEFAULT '' NOT NULL;

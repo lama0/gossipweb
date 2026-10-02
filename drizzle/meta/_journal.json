@@ -1,0 +1,62 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1789554654149,
+      "tag": "0000_perpetual_stone_men",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1789570041726,
+      "tag": "0001_fine_bastion",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1789570714672,
+      "tag": "0002_regular_wild_child",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1789571666814,
+      "tag": "0003_flimsy_lockheed",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1790582097378,
+      "tag": "0004_unique_energizer",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1790583174066,
+      "tag": "0005_mean_christian_walker",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1790684853859,
+      "tag": "0006_jittery_eddie_brock",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1790752431896,
+      "tag": "0007_skinny_earthquake",
+      "breakpoints": true
+    }
+  ]
+}
