@@ -1,4 +1,5 @@
 import { env } from "cloudflare:workers";
+import { storageRequest } from "../_storage";
 import { sessionProfile } from "../auth/_auth";
 
 export async function POST(request: Request) {
@@ -12,7 +13,15 @@ export async function POST(request: Request) {
   const ext = file.name.split(".").pop()?.replace(/[^a-zA-Z0-9]/g, "") || "jpg";
   const purpose=form.get("purpose");
   const key = `${purpose==="avatar"?"avatars":"newsletter"}/${userId}/${crypto.randomUUID()}.${ext}`;
-  await env.MEDIA.put(key, await file.arrayBuffer(), { httpMetadata: { contentType: file.type } });
+  try {
+    const result = await storageRequest(key, {
+      method: "POST", body: await file.arrayBuffer(),
+      headers: { "content-type": file.type, "x-upsert": "false" },
+    });
+    if (!result.ok) return Response.json({ error: "Image could not be saved. Please try again." }, { status: 502 });
+  } catch {
+    return Response.json({ error: "Image storage is unavailable. Please try again." }, { status: 503 });
+  }
   if(purpose==="avatar")await env.DB.prepare("UPDATE profiles SET avatar_key=? WHERE id=?").bind(key,userId).run();
   return Response.json({ key });
 }
